@@ -1,0 +1,264 @@
+FrameWidgetClass {
+ Name "rootFrame"
+ {
+  FrameWidgetClass "{68D349BA07844C84}" {
+   Name "Frame0"
+   Slot FrameWidgetSlot "{68D349BA07844CEB}" {
+    Anchor 0 1 1 1
+    PositionX 0
+    OffsetLeft 0
+    PositionY 0
+    OffsetTop 0
+    SizeX -914.78
+    OffsetRight 0
+    SizeY 50
+    OffsetBottom -50
+    Alignment 0 1
+   }
+   {
+    HorizontalLayoutWidgetClass "{68D54A5C57C02F89}" {
+     Name "HorizontalLayout1"
+     Slot FrameWidgetSlot "{68D54A5C57C02FA6}" {
+      Anchor 0 0 1 1
+      PositionX 0
+      OffsetLeft 0
+      PositionY 0
+      OffsetTop 0
+      SizeX -905.22
+      OffsetRight 0
+      SizeY -70
+      OffsetBottom 0
+     }
+     {
+      FrameWidgetClass "{68D54A5C32674858}" {
+       Name "Frame0"
+       Slot LayoutSlot "{68D54A5C32674872}" {
+        SizeMode Fill
+       }
+      }
+      HorizontalLayoutWidgetClass "{68D349B92226C38E}" {
+       Name "HorizontalLayout0"
+       Slot LayoutSlot "{68D54A5EEDC9C7EB}" {
+        SizeMode Fill
+       }
+       {
+        FrameWidgetClass "{68DD05EADCCEAA02}" {
+         Name "SpeedTextFrame"
+         Slot LayoutSlot "{68DD05EADCCEAA2D}" {
+          SizeMode Fill
+          FillWeight 0.5
+         }
+         {
+          TextWidgetClass "{68D349B93DB99A09}" {
+           Name "SpeedText"
+           Slot FrameWidgetSlot "{68DD05EADCCA7BBB}" {
+            Anchor 0 0 1 1
+            PositionX 0
+            OffsetLeft 0
+            PositionY 0
+            OffsetTop 0
+            SizeX -28
+            OffsetRight 0
+            SizeY -20
+            OffsetBottom 0
+           }
+           Text "999 km/h"
+           "Min Font Size" 5
+           "Horizontal Alignment" Center
+           "Vertical Alignment" Center
+           FontProperties FontProperties "{68D54A5CFB21AF30}" {
+            Font "{CD2634D279AB011A}UI/Fonts/Roboto/Roboto_Bold.fnt"
+            OutlineSize 2
+           }
+          }
+         }
+        }
+        VerticalLayoutWidgetClass "{68DCBE448D3302C0}" {
+         Name "SpeedBarFrame"
+         Slot LayoutSlot "{68DCBE448D3302E7}" {
+          SizeMode Fill
+         }
+         {
+          FrameWidgetClass "{68DCBE4577710B26}" {
+           Name "Frame2"
+           Slot LayoutSlot "{68DCBE4577710B30}" {
+            SizeMode Fill
+           }
+          }
+          FrameWidgetClass "{68D54A5CD2729A73}" {
+           Name "Frame0"
+           Slot LayoutSlot "{68D54A5CD27299A4}" {
+            SizeMode Fill
+           }
+           {
+            ProgressBarWidgetClass "{68D3555D61B77AA5}" {
+             Name "SpeedBar"
+             Slot FrameWidgetSlot "{68D54A5CD26E6584}" {
+              Anchor 0 0 1 1
+              PositionX 0
+              OffsetLeft 0
+              PositionY 0
+              OffsetTop 0
+              SizeX -140
+              OffsetRight 0
+              SizeY -20
+              OffsetBottom 0
+             }
+             Color 0.1384 0.1384 0.1384 1
+            }
+            FrameWidgetClass "{68D54A5CC8FB7B23}" {
+             Name "SpeedCar"
+             Slot FrameWidgetSlot "{68D54A5CC8FB7B3E}" {
+              Anchor 0 0 1 1
+              PositionX 0
+              OffsetLeft 0
+              PositionY 0
+              OffsetTop 0
+              SizeX 0
+              OffsetRight 0
+              SizeY 0
+              OffsetBottom 0
+             }
+             "Z Order" 1
+             "Is Visible" 0
+             {
+              UniformGridLayoutWidgetClass "{68D54A59BF5D0421}" {
+               Name "GridLayout0"
+               Slot FrameWidgetSlot "{68D54A59BF5D0433}" {
+                Anchor 0 0 1 1
+                PositionX 0
+                OffsetLeft 0
+                PositionY 0
+                OffsetTop 0
+                SizeX -140
+                OffsetRight 0
+                SizeY -20
+                OffsetBottom 0
+               }
+               {
+                FrameWidgetClass "{68D54A5A726F291C}" {
+                 Name "Frame0"
+                 Slot UniformGridWidgetSlot "{68D54A5A5F44407F}" {
+                 }
+                }
+                ImageWidgetClass "{68D54A5C8D7898C0}" {
+                 Name "RedLine30"
+                 Slot UniformGridWidgetSlot "{68D54A5A5F444F80}" {
+                  Column 21
+                 }
+                 Color 1 0.0353 0 1
+                }
+                ImageWidgetClass "{68D54A5DCA46CC0A}" {
+                 Name "RedLine50"
+                 Slot UniformGridWidgetSlot "{68D54A5A146B82FB}" {
+                  Column 35
+                 }
+                 Color 1 0.0353 0 1
+                }
+                ImageWidgetClass "{68D54A5A22676726}" {
+                 Name "RedLine80"
+                 Slot UniformGridWidgetSlot "{68D54A5A5F444F80}" {
+                  Column 54
+                 }
+                 Color 1 0.0353 0 1
+                }
+                FrameWidgetClass "{68D54A5A253D1ADA}" {
+                 Name "Frame1"
+                 Slot UniformGridWidgetSlot "{68D54A5A5F44407F}" {
+                  Column 150
+                 }
+                }
+               }
+              }
+             }
+            }
+            FrameWidgetClass "{68D54A5CCA720727}" {
+             Name "SpeedPlayer"
+             Slot FrameWidgetSlot "{68D54A5CCA720730}" {
+              Anchor 0 0 1 1
+              PositionX 0
+              OffsetLeft 0
+              PositionY 0
+              OffsetTop 0
+              SizeX -140
+              OffsetRight 0
+              SizeY -20
+              OffsetBottom 0
+             }
+             "Z Order" 1
+             {
+              UniformGridLayoutWidgetClass "{68D54A56864AA10B}" {
+               Name "GridLayout0"
+               Slot FrameWidgetSlot "{68D54A59BF5D0433}" {
+                Anchor 0 0 1 1
+                PositionX 0
+                OffsetLeft 0
+                PositionY 0
+                OffsetTop 0
+                SizeX -140
+                OffsetRight 0
+                SizeY -20
+                OffsetBottom 0
+               }
+               {
+                FrameWidgetClass "{68D54A56864AA115}" {
+                 Name "Frame0"
+                 Slot UniformGridWidgetSlot "{68D54A5A5F44407F}" {
+                 }
+                }
+                ImageWidgetClass "{68D54A56864AC33B}" {
+                 Name "RedLine4-5marsch"
+                 Slot UniformGridWidgetSlot "{68D54A5A5F444F80}" {
+                  Column 10
+                 }
+                 Color 1 0.0353 0 1
+                }
+                ImageWidgetClass "{68D54A56864AC338}" {
+                 Name "RedLine7marschmarsch"
+                 Slot UniformGridWidgetSlot "{68D54A5A146B82FB}" {
+                  Column 20
+                 }
+                 Color 1 0.0353 0 1
+                }
+                ImageWidgetClass "{68D54A56864AC1AF}" {
+                 Name "RedLine16-20sprint"
+                 Slot UniformGridWidgetSlot "{68D54A5A5F444F80}" {
+                  Column 35
+                 }
+                 Color 1 0.0353 0 1
+                }
+                FrameWidgetClass "{68D54A56864AC1AE}" {
+                 Name "Frame1"
+                 Slot UniformGridWidgetSlot "{68D54A5A5F44407F}" {
+                  Column 50
+                 }
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+          FrameWidgetClass "{68DCBE4575BA5173}" {
+           Name "Frame1"
+           Slot LayoutSlot "{68DCBE4575BA5095}" {
+            SizeMode Fill
+           }
+          }
+         }
+        }
+       }
+      }
+      FrameWidgetClass "{68D54A5C3C28A819}" {
+       Name "Frame1"
+       Slot LayoutSlot "{68D54A5EEDC9C60D}" {
+        SizeMode Fill
+        FillWeight 3
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

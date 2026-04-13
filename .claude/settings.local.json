@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__enfusion-mcp__project_browse",
+      "mcp__enfusion-mcp__project_read",
+      "mcp__enfusion-mcp__layout_create",
+      "mcp__enfusion-mcp__script_create",
+      "mcp__enfusion-mcp__api_search",
+      "mcp__enfusion-mcp__asset_search",
+      "mcp__enfusion-mcp__config_create",
+      "mcp__enfusion-mcp__game_read",
+      "mcp__enfusion-mcp__project_write"
+    ]
+  }
+}

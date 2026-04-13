@@ -1,0 +1,8 @@
+SCR_ChimeraCharacter {
+ ID "520EC961A090B1EE"
+ components {
+  TAG_SpeedHUD "{68D3555E4B9F7842}" {
+   Enabled 0
+  }
+ }
+}

@@ -1,0 +1,22 @@
+GameProject {
+ ID "SimpleSpeedUI"
+ GUID "68D349BB64AE5A97"
+ TITLE "Simple Speed UI for Player and Vehicle"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+ Configurations {
+  GameProjectConfig PC {
+  }
+  GameProjectConfig XBOX_ONE {
+  }
+  GameProjectConfig XBOX_SERIES {
+  }
+  GameProjectConfig PS4 {
+  }
+  GameProjectConfig PS5 {
+  }
+  GameProjectConfig HEADLESS {
+  }
+ }
+}
