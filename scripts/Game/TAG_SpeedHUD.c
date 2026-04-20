@@ -16,7 +16,6 @@ class TAG_SpeedHUD : ScriptComponent
 	private ProgressBarWidget m_SpeedBar;
 	private FrameWidget m_SpeedBarCar, m_SpeedBarPlayer, m_SpeedBarFrame;
 	private VerticalLayoutWidget m_SpeedTextFrame;
-	private bool m_HUDVisible = true;
 	private float m_MaxSpeed = 50.0;
 	private float m_MaxSpeedFoot = 50.0;
 	private float m_MaxSpeedVehicle = 150.0;
@@ -26,8 +25,11 @@ class TAG_SpeedHUD : ScriptComponent
 	private bool m_EnableBar = true;
 	private bool m_EnableUnits = true;
 	private int m_UnitType = 0; // 0=km/h, 1=m/s, 2=kn, 3=mph
+	private int m_SpeedUI_HUD_Transparency = 0;
 	private float m_LastSpeed = -1.0;
 	private float m_HideTimer = 0.0;
+	private float m_CurrentOpacity = 0.0;
+	private float m_TargetOpacity = 0.0;
 	
 
 	void TAG_SpeedHUD (IEntityComponentSource src, IEntity ent, IEntity parent)
@@ -104,6 +106,9 @@ class TAG_SpeedHUD : ScriptComponent
 		m_SpeedBar.SetMax(m_MaxSpeed);
 		m_SpeedText.SetText("0 km/h");
 		m_HUDRoot.SetVisible(true);
+		m_HUDRoot.SetOpacity(0.0);
+		m_CurrentOpacity = 0.0;
+		m_TargetOpacity = 0.0;
 
 		// Starte Speed-Update Loop
 		StartSpeedUpdate();
@@ -118,32 +123,58 @@ class TAG_SpeedHUD : ScriptComponent
 		GetGame().GetCallqueue().CallLater(UpdateSpeed, 50, true);
 	}
 
+	private float GetMaxOpacity()
+	{
+		// SpinBox index 0 = voll sichtbar (1.0), index 9 = fast unsichtbar (0.1)
+		return 1.0 - m_SpeedUI_HUD_Transparency * 0.1;
+	}
+
 	protected void UpdateSpeed()
 	{
 		LoadSettings();
 		float speed = GetPlayerSpeed();
 
-		// Geschwindigkeit hat sich geändert → HUD einblenden, Timer zurücksetzen
 		float speedDiff = speed - m_LastSpeed;
 		if (speedDiff < 0)
 			speedDiff = -speedDiff;
 
+		float maxOpacity = GetMaxOpacity();
+
 		if (speedDiff > 0.5 || m_LastSpeed < 0)
 		{
 			m_HideTimer = 3.0;
-			if (m_HUDRoot)
-				m_HUDRoot.SetVisible(true);
+			m_TargetOpacity = maxOpacity;
 		}
 		else
 		{
 			m_HideTimer = m_HideTimer - 0.05;
-			if (m_HideTimer <= 0 && m_HUDRoot)
-				m_HUDRoot.SetVisible(false);
+			if (m_HideTimer <= 0)
+				m_TargetOpacity = 0.0;
+			else
+				m_TargetOpacity = maxOpacity;
 		}
 
 		m_LastSpeed = speed;
 
-		if (!m_HUDRoot || !m_HUDRoot.IsVisible())
+		// Opacity schrittweise anpassen (0.1 pro Tick = ~500ms für 0→1)
+		float fadeStep = 0.1;
+		if (m_CurrentOpacity < m_TargetOpacity)
+		{
+			m_CurrentOpacity = m_CurrentOpacity + fadeStep;
+			if (m_CurrentOpacity > m_TargetOpacity)
+				m_CurrentOpacity = m_TargetOpacity;
+		}
+		else if (m_CurrentOpacity > m_TargetOpacity)
+		{
+			m_CurrentOpacity = m_CurrentOpacity - fadeStep;
+			if (m_CurrentOpacity < m_TargetOpacity)
+				m_CurrentOpacity = m_TargetOpacity;
+		}
+
+		if (m_HUDRoot)
+			m_HUDRoot.SetOpacity(m_CurrentOpacity);
+
+		if (m_CurrentOpacity <= 0 || !m_HUDRoot)
 			return;
 
 		UpdateSpeedDisplay(speed);
@@ -168,6 +199,9 @@ class TAG_SpeedHUD : ScriptComponent
 			m_EnableUnits = settingsManager.SpeedUI_Enable_Units;
 			m_UnitType = settingsManager.SpeedUI_Units;
 		}
+		
+		//main
+		m_SpeedUI_HUD_Transparency = settingsManager.SpeedUI_HUD_Transparency;
 	}
 
 	private float GetPlayerSpeed()

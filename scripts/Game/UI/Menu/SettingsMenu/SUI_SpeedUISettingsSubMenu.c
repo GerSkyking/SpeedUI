@@ -16,6 +16,9 @@ class SUI_SpeedUISettingsSubMenu : SCR_SettingsSubMenuBase
 	private SCR_SpinBoxComponent m_EnableBarSpinBox_v;
 	private SCR_SpinBoxComponent m_EnableUnitsSpinBox_v;
 	private SCR_SpinBoxComponent m_UnitsSpinBox_v;
+	
+	//Main
+	private SCR_SpinBoxComponent m_SpeedUI_HUD_Transparency;
 
 	//------------------------------------------------------------------------------------------------
 	override void OnTabCreate(Widget menuRoot, ResourceName buttonsLayout, int index)
@@ -31,6 +34,9 @@ class SUI_SpeedUISettingsSubMenu : SCR_SettingsSubMenuBase
 		m_EnableBarSpinBox_v = SCR_SpinBoxComponent.Cast(menuRoot.FindAnyWidget("SpeedUI_Enable_Bar_v").FindHandler(SCR_SpinBoxComponent));
 		m_EnableUnitsSpinBox_v = SCR_SpinBoxComponent.Cast(menuRoot.FindAnyWidget("SpeedUI_Enable_Units_v").FindHandler(SCR_SpinBoxComponent));
 		m_UnitsSpinBox_v = SCR_SpinBoxComponent.Cast(menuRoot.FindAnyWidget("SpeedUI_Units_v").FindHandler(SCR_SpinBoxComponent));
+		
+		//Main
+		m_SpeedUI_HUD_Transparency = SCR_SpinBoxComponent.Cast(menuRoot.FindAnyWidget("SpeedUI_HUD_Transparency").FindHandler(SCR_SpinBoxComponent));
 
 		// Lade aktuelle Werte aus Settings
 		LoadSpeedUISettings();
@@ -50,6 +56,10 @@ class SUI_SpeedUISettingsSubMenu : SCR_SettingsSubMenuBase
 			m_EnableUnitsSpinBox_v.m_OnChanged.Insert(OnEnableUnitsChanged_v);
 		if (m_UnitsSpinBox_v)
 			m_UnitsSpinBox_v.m_OnChanged.Insert(OnUnitsChanged_v);
+		
+		//main
+		if (m_SpeedUI_HUD_Transparency)
+			m_SpeedUI_HUD_Transparency.m_OnChanged.Insert(Onm_SpeedUI_HUD_TransparencyChanged);
 	}
 
 	//------------------------------------------------------------------------------------------------
@@ -105,6 +115,10 @@ class SUI_SpeedUISettingsSubMenu : SCR_SettingsSubMenuBase
 
 		if (m_UnitsSpinBox_v)
 			m_UnitsSpinBox_v.SetCurrentItem(settingsManager.SpeedUI_Units_v);
+		
+		//main
+		if (m_SpeedUI_HUD_Transparency)
+			m_SpeedUI_HUD_Transparency.SetCurrentItem(settingsManager.SpeedUI_HUD_Transparency);
 	}
 
 	//------------------------------------------------------------------------------------------------
@@ -160,6 +174,13 @@ class SUI_SpeedUISettingsSubMenu : SCR_SettingsSubMenuBase
 	{
 		SUI_SpeedUISettingsManager settingsManager = SUI_SpeedUISettingsManager.GetInstance();
 		settingsManager.SpeedUI_Units_v = selectedIndex;
+		settingsManager.Save();
+	}	
+	//------------------------------------------------------------------------------------------------
+	private void Onm_SpeedUI_HUD_TransparencyChanged(SCR_SpinBoxComponent comp, int selectedIndex)
+	{
+		SUI_SpeedUISettingsManager settingsManager = SUI_SpeedUISettingsManager.GetInstance();
+		settingsManager.SpeedUI_HUD_Transparency = selectedIndex;
 		settingsManager.Save();
 	}
 }

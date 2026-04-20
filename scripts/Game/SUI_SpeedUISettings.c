@@ -13,6 +13,9 @@ class SUI_SpeedUISettingsManager
 	bool SpeedUI_Enable_Bar_v = true;
 	bool SpeedUI_Enable_Units_v = true;
 	int SpeedUI_Units_v = 0;
+	
+	//Main
+	int SpeedUI_HUD_Transparency = 0;
 
 	static SUI_SpeedUISettingsManager GetInstance()
 	{
@@ -51,6 +54,8 @@ class SUI_SpeedUISettingsManager
 				SpeedUI_Enable_Units_v = (line == "1");
 			else if (lineNum == 5)
 				SpeedUI_Units_v = line.ToInt();
+			else if (lineNum == 6)
+				SpeedUI_HUD_Transparency = line.ToInt();
 
 			lineNum++;
 		}
@@ -96,6 +101,10 @@ class SUI_SpeedUISettingsManager
 			handle.WriteLine("0");
 
 		handle.WriteLine(SpeedUI_Units_v.ToString());
+		
+		//Main
+		handle.WriteLine(SpeedUI_HUD_Transparency.ToString());
+
 
 		delete handle;
 		Print("DEBUG: Settings saved to profile");

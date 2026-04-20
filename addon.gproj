@@ -7,6 +7,23 @@ GameProject {
  }
  Configurations {
   GameProjectConfig PC {
+   WidgetManagerSettings WidgetManagerSettings "{AC4BE58770485E02}" {
+    StringTables {
+     StringTableDefinition "{692711E1E157E3C6}" {
+      StringTableSource "{41224820638E33CC}Language/SUI_localization.st"
+      Languages {
+       LanguageDefinition "{692711E1E360E921}" {
+        Code "de_de"
+        StringTableRuntime "{8E541885790F37E7}Language/SUI_localization.de_de.conf"
+       }
+       LanguageDefinition "{692711E1E360E94B}" {
+        Code "en_us"
+        StringTableRuntime "{D0A492CE13FC32E6}Language/SUI_localization.en_us.conf"
+       }
+      }
+     }
+    }
+   }
   }
   GameProjectConfig XBOX_ONE {
   }

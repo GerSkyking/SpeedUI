@@ -54,7 +54,7 @@ HorizontalLayoutWidgetClass {
        }
        components {
         SCR_SpinBoxComponent "{5472C6CBC0640458}" {
-         m_sLabel "Enable Bar"
+         m_sLabel "#SUI-Settings-SpeedUI-EnableBar"
          m_sLabelLayout "{F003823FF141983C}UI/layouts/Menus/SettingsMenu/CustomWidgets/SettingsLabel.layout"
          m_aElementNames {
           "#AR-UI_No" "#AR-UI_Yes"
@@ -71,7 +71,7 @@ HorizontalLayoutWidgetClass {
        }
        components {
         SCR_SpinBoxComponent "{5472C6CBC0640458}" {
-         m_sLabel "Enable Units"
+         m_sLabel "#SUI-Settings-SpeedUI-EnableUnits"
          m_sLabelLayout "{F003823FF141983C}UI/layouts/Menus/SettingsMenu/CustomWidgets/SettingsLabel.layout"
          m_aElementNames {
           "#AR-UI_No" "#AR-UI_Yes"
@@ -88,7 +88,7 @@ HorizontalLayoutWidgetClass {
        }
        components {
         SCR_SpinBoxComponent "{5472C6CBC0640458}" {
-         m_sLabel "Units"
+         m_sLabel "#SUI-Settings-SpeedUI-Units"
          m_sLabelLayout "{F003823FF141983C}UI/layouts/Menus/SettingsMenu/CustomWidgets/SettingsLabel.layout"
          m_aElementNames {
           "km/h" "m/s" "kn" "mph"
@@ -105,7 +105,7 @@ HorizontalLayoutWidgetClass {
        }
        components {
         SCR_LabelComponent "{58B30C1A8E56F0FF}" {
-         m_sLabel "SpeedUI Vehicle"
+         m_sLabel "#SUI-Settings-SpeedUI-Vehicle"
          m_fPaddingTop 4
         }
        }
@@ -125,7 +125,7 @@ HorizontalLayoutWidgetClass {
        }
        components {
         SCR_SpinBoxComponent "{5472C6CBC0640458}" {
-         m_sLabel "Enable Bar"
+         m_sLabel "#SUI-Settings-SpeedUI-EnableBar"
          m_sLabelLayout "{F003823FF141983C}UI/layouts/Menus/SettingsMenu/CustomWidgets/SettingsLabel.layout"
          m_aElementNames {
           "#AR-UI_No" "#AR-UI_Yes"
@@ -142,7 +142,7 @@ HorizontalLayoutWidgetClass {
        }
        components {
         SCR_SpinBoxComponent "{5472C6CBC0640458}" {
-         m_sLabel "Enable Units"
+         m_sLabel "#SUI-Settings-SpeedUI-EnableUnits"
          m_sLabelLayout "{F003823FF141983C}UI/layouts/Menus/SettingsMenu/CustomWidgets/SettingsLabel.layout"
          m_aElementNames {
           "#AR-UI_No" "#AR-UI_Yes"
@@ -159,7 +159,7 @@ HorizontalLayoutWidgetClass {
        }
        components {
         SCR_SpinBoxComponent "{5472C6CBC0640458}" {
-         m_sLabel "Units"
+         m_sLabel "#SUI-Settings-SpeedUI-Units"
          m_sLabelLayout "{F003823FF141983C}UI/layouts/Menus/SettingsMenu/CustomWidgets/SettingsLabel.layout"
          m_aElementNames {
           "km/h" "m/s" "kn" "mph"
@@ -167,6 +167,45 @@ HorizontalLayoutWidgetClass {
          m_iSelectedItem 0
          m_bUseLightArrows 1
          m_bCycleMode 1
+        }
+       }
+      }
+      VerticalLayoutWidgetClass "{6926F0D66404159E}" : "{FEEEB639F2735BA1}UI/layouts/Menus/SettingsMenu/CustomWidgets/SettingsTitle.layout" {
+       Name "TitleSpeedUIVehicle0"
+       Slot LayoutSlot "{58B32278C99818F2}" {
+       }
+       components {
+        SCR_LabelComponent "{58B30C1A8E56F0FF}" {
+         m_sLabel "#SUI-Settings-SpeedUI-Main"
+         m_fPaddingTop 4
+        }
+       }
+       {
+        TextWidgetClass "{58B30C1F77EC7B4E}" {
+         Prefab "{58B30C1F77EC7B4E}"
+         Slot LayoutSlot "{58B30C1F77EC7B76}" {
+          Padding 39 4 39 20
+         }
+        }
+       }
+      }
+      ButtonWidgetClass "{6926F0D66A846F0F}" : "{C9DF0E6590F6C388}UI/layouts/WidgetLibrary/SpinBox/WLib_SpinBox.layout" {
+       Name "SpeedUI_HUD_Transparency"
+       Slot LayoutSlot "{54890CCF086F16D6}" {
+        Padding 4 4 4 4
+       }
+       components {
+        SCR_SpinBoxComponent "{5472C6CBC0640458}" {
+         m_sLabel "#SUI-Settings-SpeedUI-Transparency"
+         m_sLabelLayout "{F003823FF141983C}UI/layouts/Menus/SettingsMenu/CustomWidgets/SettingsLabel.layout"
+         m_aElementNames {
+          "1" "0.9" "0.8" "0.7" "0.6" "0.5" "0.4" "0.3" "0.2" "0.1"
+         }
+         m_iSelectedItem 0
+         m_bUseLightArrows 1
+         m_bCycleMode 1
+        }
+        SCR_ModularButtonComponent "{5E4C99C9EEA65996}" {
         }
        }
       }
